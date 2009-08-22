@@ -1,0 +1,16 @@
+---
+abstract: 'Simple, IKC-like remote session proxifier'
+author:
+  - 'Nicholas Perez <nperez@cpan.org>'
+generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.092200'
+license: gpl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: POEx-ProxySession
+requires:
+  POEx::Role::TCPClient: 0.092340
+  POEx::Role::TCPServer: 0.092340
+resources:
+  repository: git://github.com/nperez/pxps.git
+version: 0.092340
