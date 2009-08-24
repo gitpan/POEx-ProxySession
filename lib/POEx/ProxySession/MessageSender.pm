@@ -1,5 +1,5 @@
 package POEx::ProxySession::MessageSender;
-our $VERSION = '0.092340';
+our $VERSION = '0.092360';
 
 
 #ABSTRACT: ProxySession utility Role for sending message
@@ -158,7 +158,7 @@ POEx::ProxySession::MessageSender - ProxySession utility Role for sending messag
 
 =head1 VERSION
 
-version 0.092340
+version 0.092360
 
 =head1 DESCRIPTION
 

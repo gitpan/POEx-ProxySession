@@ -1,5 +1,5 @@
 package POEx::ProxySession;
-our $VERSION = '0.092340';
+our $VERSION = '0.092360';
 
 
 #ABSTRACT: Simple, IKC-like remote session proxifier
@@ -16,7 +16,7 @@ POEx::ProxySession - Simple, IKC-like remote session proxifier
 
 =head1 VERSION
 
-version 0.092340
+version 0.092360
 
 =head1 AUTHOR
 

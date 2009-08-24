@@ -13,4 +13,4 @@ requires:
   POEx::Role::TCPServer: 0.092340
 resources:
   repository: git://github.com/nperez/pxps.git
-version: 0.092340
+version: 0.092360

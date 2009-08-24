@@ -1,5 +1,5 @@
 package POEx::Role::ProxyEvent;
-our $VERSION = '0.092340';
+our $VERSION = '0.092360';
 
 
 #ABSTRACT: Provide a decorator to label events to be proxied
@@ -21,7 +21,7 @@ POEx::Role::ProxyEvent - Provide a decorator to label events to be proxied
 
 =head1 VERSION
 
-version 0.092340
+version 0.092360
 
 =head1 DESCRIPTION
 

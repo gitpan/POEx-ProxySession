@@ -1,5 +1,5 @@
 package POEx::ProxySession::Client;
-our $VERSION = '0.092340';
+our $VERSION = '0.092360';
 
 
 #ABSTRACT: Proxies remote, published Sessions, or publishes, local Sessions for subscription
@@ -671,7 +671,7 @@ POEx::ProxySession::Client - Proxies remote, published Sessions, or publishes, l
 
 =head1 VERSION
 
-version 0.092340
+version 0.092360
 
 =head1 SYNOPSIS
 

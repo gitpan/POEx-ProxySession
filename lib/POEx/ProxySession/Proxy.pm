@@ -1,5 +1,5 @@
 package POEx::ProxySession::Proxy;
-our $VERSION = '0.092340';
+our $VERSION = '0.092360';
 
 
 #ABSTRACT: This is the proxy class
@@ -134,7 +134,7 @@ POEx::ProxySession::Proxy - This is the proxy class
 
 =head1 VERSION
 
-version 0.092340
+version 0.092360
 
 =head1 DESCRIPTION
 POEx::ProxySession::Proxy is the light weight proxy class that is instantiated

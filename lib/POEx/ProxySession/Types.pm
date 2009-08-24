@@ -1,9 +1,8 @@
 package POEx::ProxySession::Types;
-our $VERSION = '0.092340';
+our $VERSION = '0.092360';
 
 use warnings;
 use strict;
-use 5.010;
 
 #ABSTRACT: Types for use within the ProxySession environment
 
@@ -24,39 +23,37 @@ subtype ProxyMessage,
     where 
     {
         my $hash = $_;
-        given($hash->{type})
+        
+        if($hash->{type} eq 'deliver')
         {
-            when('deliver')
-            {
-                return defined($hash->{to});
-            }
-            when('result')
-            {
-                return defined($hash->{success});
-            }
-            when('subscribe')
-            {
-                return defined($hash->{to});
-            }
-            when('publish')
-            {
-                return defined($hash->{payload});
-            }
-            when('rescind')
-            {
-                return defined($hash->{payload});
-            }
-            when('listing')
-            {
-                return 1;
-            }
-            default
-            {
-                # we do this so that this may be used as a base type
-                return 1;
-            }
+            return defined($hash->{to});
         }
-    };
+        elsif($hash->{type} eq 'result')
+        {
+            return defined($hash->{success});
+        }
+        elsif($hash->{type} eq 'subscribe')
+        {
+            return defined($hash->{to});
+        }
+        elsif($hash->{type} eq 'publish')
+        {
+            return defined($hash->{payload});
+        }
+        elsif($hash->{type} eq 'rescind')
+        {
+            return defined($hash->{payload});
+        }
+        elsif($hash->{type} eq 'listing')
+        {
+            return 1;
+        }
+        else
+        {
+            # we do this so that this may be used as a base type
+            return 1;
+        }
+};
         
 1;
 
@@ -70,7 +67,7 @@ POEx::ProxySession::Types - Types for use within the ProxySession environment
 
 =head1 VERSION
 
-version 0.092340
+version 0.092360
 
 =head1 Types
 
