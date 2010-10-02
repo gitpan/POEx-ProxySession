@@ -7,17 +7,18 @@ BEGIN
     use_ok('POEx::ProxySession::Server');
     use_ok('POEx::ProxySession::Client');
 }
+
 use POE;
 
-class Foo
-{
+my $port = int(rand(10000)) + 50000;
+
+class Foo {
     with 'POEx::Role::SessionInstantiation';
     use aliased 'POEx::Role::Event';
     use aliased 'POEx::Role::ProxyEvent';
     use POEx::Types(':all');
     
-    method setup(WheelID :$connection_id) is Event
-    {
+    method setup(WheelID :$connection_id) is Event {
         Test::More::pass('Foo::setup called');
         
         $self->post
@@ -32,8 +33,7 @@ class Foo
         );
     }
 
-    method handle_publish(WheelID :$connection_id, Bool :$success, Str :$session_alias, Ref :$payload?, Ref :$tag?) is Event
-    {
+    method handle_publish(WheelID :$connection_id, Bool :$success, Str :$session_alias, Ref :$payload?, Ref :$tag?) is Event {
         if($success)
         {
             Test::More::pass('publish successful');
@@ -49,8 +49,7 @@ class Foo
 
     method foo(Str $arg1) is ProxyEvent { Test::More::pass('Foo::foo called'); }
     method bar(Int $arg1) is ProxyEvent { Test::More::pass('Foo::bar called'); }
-    method yar(Bool $blat) is ProxyEvent
-    { 
+    method yar(Bool $blat) is ProxyEvent { 
         Test::More::pass('Foo::yar called'); 
         $self->post
         (
@@ -62,8 +61,7 @@ class Foo
         );
     }
 
-    method handle_rescind(WheelID :$connection_id, Bool :$success, Str :$session_name, Ref :$payload?, Ref :$tag?) is Event
-    {
+    method handle_rescind(WheelID :$connection_id, Bool :$success, Str :$session_name, Ref :$payload?, Ref :$tag?) is Event {
         if($success)
         {
             Test::More::pass('rescind successful');
@@ -80,8 +78,7 @@ class Foo
     }
 }
 
-class Tester
-{
+class Tester {
     with 'POEx::Role::SessionInstantiation';
     use Storable('nfreeze');
     use POEx::ProxySession::Types(':all');
@@ -92,12 +89,11 @@ class Tester
     has client => ( is => 'rw', isa => 'Ref');
     has connection_id => (is => 'rw', isa => 'Int');
 
-    after _start(@args) is Event
-    {
+    after _start(@args) is Event {
         my $server = POEx::ProxySession::Server->new
         (
             listen_ip   => '127.0.0.1',
-            listen_port => 56789,
+            listen_port => $port,
             alias       => 'Server',
             options     => { trace => 1, debug => 1 },
         );
@@ -120,7 +116,7 @@ class Tester
             'Client', 
             'connect', 
             remote_address  => '127.0.0.1', 
-            remote_port     => 56789,
+            remote_port     => $port,
             return_session  => $self->alias,
             return_event    => 'post_connect',
             tag             => \'connect_tag'
@@ -130,14 +126,12 @@ class Tester
         $self->client($client);
     }
 
-    method unknown_event(ProxyMessage $data, WheelID $id) is Event
-    {
+    method unknown_event(ProxyMessage $data, WheelID $id) is Event {
         Test::More::pass('Tester::unknown_event called');
         Test::More::is($data->{type}, 'unknown', 'type of unknown event is "unknown"');
     }
 
-    method post_connect(WheelID :$connection_id, Str :$remote_address, Int :$remote_port, Ref :$tag) is Event
-    {
+    method post_connect(WheelID :$connection_id, Str :$remote_address, Int :$remote_port, Ref :$tag) is Event {
         Test::More::pass('Tester::post_connect called');
         Test::More::is_deeply($tag, \'connect_tag', 'connect tag test');
         
@@ -163,8 +157,7 @@ class Tester
         );
     }
 
-    method continue() is Event
-    {
+    method continue() is Event {
         Test::More::pass('Tester::continue called');
         $self->post
         (
@@ -177,8 +170,7 @@ class Tester
         );
     }
 
-    method post_subscription(WheelID :$connection_id, Bool :$success, Str :$session_name, Ref :$payload?, Ref :$tag?) is Event
-    {
+    method post_subscription(WheelID :$connection_id, Bool :$success, Str :$session_name, Ref :$payload?, Ref :$tag?) is Event {
         if($success)
         {
             Test::More::pass('Subscription successful');
@@ -200,8 +192,7 @@ class Tester
         }
     }
 
-    method post_listing(WheelID :$connection_id, Bool :$success, ArrayRef :$payload, Ref :$tag?) is Event
-    {
+    method post_listing(WheelID :$connection_id, Bool :$success, ArrayRef :$payload, Ref :$tag?) is Event {
         if($success && (@$payload == 1) && $payload->[0] eq 'FooSession')
         {
             Test::More::pass('Listing successful');
@@ -235,15 +226,13 @@ class Tester
         }
     }
 
-    method finish() is Event
-    {
+    method finish() is Event {
         Test::More::pass('finish called');
         $self->clear_alias;
         $self->post('Client', 'unsubscribe', session_name => 'FooSession', return_event => 'done', tag => \'tag6');
     }
 
-    method done(Bool :$success, SessionAlias :$session_alias, Ref :$tag?) is Event
-    {
+    method done(Bool :$success, SessionAlias :$session_alias, Ref :$tag?) is Event {
         Test::More::pass('all done');
         Test::More::is_deeply($tag, \'tag6', 'test unsubscribe tag');
         $self->post('Server', 'shutdown');
@@ -257,3 +246,4 @@ POE::Kernel->run();
 
 pass('done');
 done_testing();
+0;

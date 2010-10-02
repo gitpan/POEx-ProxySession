@@ -1,6 +1,7 @@
 Changes
 LICENSE
 MANIFEST
+META.json
 META.yml
 Makefile.PL
 README
@@ -14,5 +15,5 @@ lib/POEx/ProxySession/Types.pm
 lib/POEx/Role/ProxyEvent.pm
 t/00-load.t
 t/01-basic.t
-t/release-pod-coverage.t
 t/release-pod-syntax.t
+weaver.ini

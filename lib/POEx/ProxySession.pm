@@ -1,11 +1,11 @@
 package POEx::ProxySession;
-our $VERSION = '0.092360';
-
+BEGIN {
+  $POEx::ProxySession::VERSION = '1.102750';
+}
 
 #ABSTRACT: Simple, IKC-like remote session proxifier
 
 1;
-
 
 
 =pod
@@ -16,22 +16,20 @@ POEx::ProxySession - Simple, IKC-like remote session proxifier
 
 =head1 VERSION
 
-version 0.092360
+version 1.102750
 
 =head1 AUTHOR
 
-  Nicholas Perez <nperez@cpan.org>
+Nicholas Perez <nperez@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2009 by Nicholas Perez.
+This software is copyright (c) 2010 by Nicholas Perez.
 
-This is free software, licensed under:
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
-  The GNU General Public License, Version 3, June 2007
-
-=cut 
-
+=cut
 
 
 __END__

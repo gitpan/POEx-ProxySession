@@ -1,16 +1,14 @@
 package POEx::Role::ProxyEvent;
-our $VERSION = '0.092360';
-
+BEGIN {
+  $POEx::Role::ProxyEvent::VERSION = '1.102750';
+}
 
 #ABSTRACT: Provide a decorator to label events to be proxied
 
 use MooseX::Declare;
 
-role POEx::Role::ProxyEvent with POEx::Role::Event
-{
-}
+role POEx::Role::ProxyEvent with POEx::Role::Event { }
 1;
-
 
 
 =pod
@@ -21,7 +19,7 @@ POEx::Role::ProxyEvent - Provide a decorator to label events to be proxied
 
 =head1 VERSION
 
-version 0.092360
+version 1.102750
 
 =head1 DESCRIPTION
 
@@ -30,18 +28,16 @@ be available for proxy.
 
 =head1 AUTHOR
 
-  Nicholas Perez <nperez@cpan.org>
+Nicholas Perez <nperez@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2009 by Nicholas Perez.
+This software is copyright (c) 2010 by Nicholas Perez.
 
-This is free software, licensed under:
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
-  The GNU General Public License, Version 3, June 2007
-
-=cut 
-
+=cut
 
 
 __END__

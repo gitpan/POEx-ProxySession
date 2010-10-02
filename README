@@ -1,13 +1,13 @@
 
 
-This archive contains the distribution POEx-ProxySession, version
-0.092360:
+This archive contains the distribution POEx-ProxySession,
+version 1.102750:
 
   Simple, IKC-like remote session proxifier
 
-This software is Copyright (c) 2009 by Nicholas Perez.
+This software is copyright (c) 2010 by Nicholas Perez.
 
-This is free software, licensed under:
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
-  The GNU General Public License, Version 3, June 2007
 

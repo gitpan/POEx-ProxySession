@@ -1,7 +1,14 @@
-Revision history for POEx-ProxySession 0.092360
+Revision history for POEx-ProxySession 1.102750
+
+1.102750  2010-10-02 15:03:00 America/Chicago
+        Stave off bitrot through updating documentation
+        Update dist.ini to the latest
+        Switch documentation to newest weaver.ini
+        Move braces to work around broken MXD on newer perls
 
 0.092360  2009-08-24 05:14:07 UTC
         Remove 5.10-ism from POEx::ProxySession::Types
 
 0.092340  2009-08-22 19:08:17 UTC
         Initial release
+

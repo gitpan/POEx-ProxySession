@@ -1,13 +1,13 @@
 package POEx::ProxySession::Proxy;
-our $VERSION = '0.092360';
-
+BEGIN {
+  $POEx::ProxySession::Proxy::VERSION = '1.102750';
+}
 
 #ABSTRACT: This is the proxy class
 
 use MooseX::Declare;
 
-class POEx::ProxySession::Proxy is mutable
-{
+class POEx::ProxySession::Proxy is mutable {
     with 'POEx::Role::SessionInstantiation'; 
     use Class::MOP;
     use MooseX::Types::Moose(':all');
@@ -23,8 +23,7 @@ class POEx::ProxySession::Proxy is mutable
     has parent_startup => ( is => 'ro', isa => Str );
     has connection_id => ( is => 'rw', isa => WheelID );
 
-    after _start(ProxyMessage $data, WheelID $id, HashRef $tag) is Event
-    {
+    after _start(ProxyMessage $data, WheelID $id, HashRef $tag) is Event {
         my $payload = thaw($data->{payload});
         my ($session_name, $methods) = @$payload{'session', 'methods'};
         my $parent_id = $self->parent_id;
@@ -110,20 +109,17 @@ class POEx::ProxySession::Proxy is mutable
         $self->poe->kernel->detach_myself();
     }
 
-    method proxy_send_check(ProxyMessage $data, WheelID $id, HashRef $tag) is Event
-    {
+    method proxy_send_check(ProxyMessage $data, WheelID $id, HashRef $tag) is Event {
         warn 'A proxy call to '. $tag->{session_name} . ':'. $tag->{event_name} .
         ' with the arguments [ ' . join(', ', @{ $tag->{args} }) . ' ] failed: '.
         thaw($data->{payload}) if !$data->{success};
     }
 
-    method shutdown() is Event
-    {
+    method shutdown() is Event {
         $self->clear_alias;
     }
 }
 1;
-
 
 
 =pod
@@ -134,26 +130,25 @@ POEx::ProxySession::Proxy - This is the proxy class
 
 =head1 VERSION
 
-version 0.092360
+version 1.102750
 
 =head1 DESCRIPTION
+
 POEx::ProxySession::Proxy is the light weight proxy class that is instantiated
 when a successful subscribe is executed. Consider this class private.
 
 =head1 AUTHOR
 
-  Nicholas Perez <nperez@cpan.org>
+Nicholas Perez <nperez@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2009 by Nicholas Perez.
+This software is copyright (c) 2010 by Nicholas Perez.
 
-This is free software, licensed under:
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
-  The GNU General Public License, Version 3, June 2007
-
-=cut 
-
+=cut
 
 
 __END__
