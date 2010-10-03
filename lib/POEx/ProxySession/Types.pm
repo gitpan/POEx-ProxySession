@@ -1,6 +1,6 @@
 package POEx::ProxySession::Types;
 BEGIN {
-  $POEx::ProxySession::Types::VERSION = '1.102750';
+  $POEx::ProxySession::Types::VERSION = '1.102760';
 }
 use warnings;
 use strict;
@@ -67,7 +67,7 @@ POEx::ProxySession::Types - Types for use within the ProxySession environment
 
 =head1 VERSION
 
-version 1.102750
+version 1.102760
 
 =head1 DESCRIPTION
 

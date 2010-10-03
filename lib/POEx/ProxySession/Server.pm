@@ -1,6 +1,6 @@
 package POEx::ProxySession::Server;
 BEGIN {
-  $POEx::ProxySession::Server::VERSION = '1.102750';
+  $POEx::ProxySession::Server::VERSION = '1.102760';
 }
 
 #ABSTRACT: Hosts published sessions and routes proxy message
@@ -294,7 +294,7 @@ POEx::ProxySession::Server - Hosts published sessions and routes proxy message
 
 =head1 VERSION
 
-version 1.102750
+version 1.102760
 
 =head1 SYNOPSIS
 

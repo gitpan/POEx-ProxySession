@@ -31,12 +31,14 @@ my %WriteMakefileArgs = (
     'MooseX::Types::Structured' => '0',
     'POE::Filter::Reference' => '0',
     'POEx::Role::SessionInstantiation' => '0',
+    'POEx::Role::TCPClient' => '0',
+    'POEx::Role::TCPServer' => '0',
     'POEx::Types' => '0',
     'Socket' => '0',
     'Storable' => '0',
     'aliased' => '0'
   },
-  'VERSION' => '1.102750',
+  'VERSION' => '1.102760',
   'test' => {
     'TESTS' => 't/*.t'
   }

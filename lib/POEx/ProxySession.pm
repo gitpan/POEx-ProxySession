@@ -1,6 +1,6 @@
 package POEx::ProxySession;
 BEGIN {
-  $POEx::ProxySession::VERSION = '1.102750';
+  $POEx::ProxySession::VERSION = '1.102760';
 }
 
 #ABSTRACT: Simple, IKC-like remote session proxifier
@@ -16,7 +16,7 @@ POEx::ProxySession - Simple, IKC-like remote session proxifier
 
 =head1 VERSION
 
-version 1.102750
+version 1.102760
 
 =head1 AUTHOR
 

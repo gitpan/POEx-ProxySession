@@ -29,6 +29,8 @@
             "MooseX::Types::Structured" : 0,
             "POE::Filter::Reference" : 0,
             "POEx::Role::SessionInstantiation" : 0,
+            "POEx::Role::TCPClient" : 0,
+            "POEx::Role::TCPServer" : 0,
             "POEx::Types" : 0,
             "Socket" : 0,
             "Storable" : 0,
@@ -49,6 +51,6 @@
          "url" : "git://github.com/nperez/pxps.git"
       }
    },
-   "version" : "1.102750"
+   "version" : "1.102760"
 }
 

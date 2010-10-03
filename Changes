@@ -1,4 +1,7 @@
-Revision history for POEx-ProxySession 1.102750
+Revision history for POEx-ProxySession 1.102760
+
+1.102760  2010-10-02 20:54:01 America/Chicago
+        Explicitly list the missing dependencies that AutoPrereq failed to find
 
 1.102750  2010-10-02 15:03:00 America/Chicago
         Stave off bitrot through updating documentation

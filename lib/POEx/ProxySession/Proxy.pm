@@ -1,6 +1,6 @@
 package POEx::ProxySession::Proxy;
 BEGIN {
-  $POEx::ProxySession::Proxy::VERSION = '1.102750';
+  $POEx::ProxySession::Proxy::VERSION = '1.102760';
 }
 
 #ABSTRACT: This is the proxy class
@@ -130,7 +130,7 @@ POEx::ProxySession::Proxy - This is the proxy class
 
 =head1 VERSION
 
-version 1.102750
+version 1.102760
 
 =head1 DESCRIPTION
 
